@@ -23,7 +23,7 @@ module.exports = delegate => {
             }
 
             if (response) {
-                res.set('content-length', Buffer.byteLength(response))
+                // res.set('content-length', Buffer.byteLength(response))
                 res.status(200).json(response)
                 return
             }
