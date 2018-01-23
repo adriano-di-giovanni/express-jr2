@@ -1,4 +1,5 @@
 const { createServer } = require('jr2')
+const statuses = require('statuses')
 
 module.exports = delegate => {
     const server = createServer(delegate)
@@ -6,12 +7,12 @@ module.exports = delegate => {
     return function(req, res, next) {
         if (!/^POST$/i.test(req.method)) {
             res.set('allow', 'POST')
-            res.sendStatus(405)
+            res.status(405).send(statuses[405])
             return
         }
 
         if (!/^application\/json$/i.test(req.headers['content-type'])) {
-            res.sendStatus(415)
+            res.status(415).send(statuses[415])
             return
         }
 
@@ -23,11 +24,11 @@ module.exports = delegate => {
 
             if (response) {
                 res.set('content-length', Buffer.byteLength(response))
-                res.json(200, response)
+                res.status(200).json(response)
                 return
             }
 
-            res.sendStatus(204)
+            res.status(204).send(statuses[204])
         })
     }
 }

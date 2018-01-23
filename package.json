@@ -1,6 +1,6 @@
 {
     "name": "express-jr2",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Create a JSON-RPC 2.0 compliant HTTP server with jr2 and Express",
     "main": "src/index.js",
     "scripts": {
@@ -21,7 +21,8 @@
     "author": "Adriano Di Giovanni <me@adrianodigiovanni.com> (http://adrianodigiovanni.com/)",
     "license": "MIT",
     "dependencies": {
-        "jr2": "^0.1.1"
+        "jr2": "^0.1.1",
+        "statuses": "^1.4.0"
     },
     "devDependencies": {
         "body-parser": "^1.18.2",
